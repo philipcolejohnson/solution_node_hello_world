@@ -1,7 +1,10 @@
-var chalk = require("chalk");
 var _ = require("lodash");
 var logger = require("./lib/logger");
+var logs = require("./data/logs");
 
-logger.log("INFO!!", "INFO");
-logger.log("WARNING!!", "WARNING");
-logger.log("ERROR!!", "ERROR");
+// `logs` is an array, and `data`
+// is an individual object consisting
+// of a message and a log level
+_.each(logs, function(data) {
+  logger.log(data.message, data.level);
+});
